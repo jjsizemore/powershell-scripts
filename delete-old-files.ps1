@@ -1,4 +1,5 @@
-gci C:\Octopus\Applications\DEV-TEST |
+# Given a path, iterates over project folders inside, deleting all folders in each that are older than 5 days, except for newest
+gci PATHNAMEHERE |
   ?{ $_.PSIsContainer } |
   ForEach-Object  -Begin $null -Process { [string]$projectLocation = $_.FullName }, { [string]$newestLocation = gci -Path $projectLocation |
                                                                                       ? { $_.PSIsContainer } |
